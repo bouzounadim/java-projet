@@ -26,7 +26,7 @@ public class Groupe {
 	private long groupe_id;
 	private String name;
 	private Date year;
-	
+	private Date a;
 	    @ManyToOne
 	    @JoinColumn(name="teacher_id", nullable=false)
 	    private Teacher teacher;
