@@ -1,7 +1,9 @@
 package com.example.demo.model;
 
+import java.sql.Date;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +13,7 @@ import javax.persistence.OneToMany;
 import org.springframework.data.repository.NoRepositoryBean;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,13 +25,15 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Teacher  extends User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-	private int Teacher_id;
-    
-    
-    @OneToMany(mappedBy="groupe")
-    private Set<Groupe> items;
-    
+	@OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+    private Set<Groupe> group;
+	
+	 
+	    public Teacher (int user_id, String username, String email, String password , Number phone, String adresse , String state , Date created_at, String role) {
+	        super(user_id, username,email,password,phone,adresse,state,created_at,role);
+	        this.setRole("teacher");
+	    }
+	
+	
   
 }
