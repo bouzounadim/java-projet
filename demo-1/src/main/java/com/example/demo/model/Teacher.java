@@ -28,7 +28,7 @@ public class Teacher  extends User {
 	@OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
     private Set<Groupe> group;
 	
-	 
+	private String a;
 	    public Teacher (int user_id, String username, String email, String password , Number phone, String adresse , String state , Date created_at, String role) {
 	        super(user_id, username,email,password,phone,adresse,state,created_at,role);
 	        this.setRole("teacher");
