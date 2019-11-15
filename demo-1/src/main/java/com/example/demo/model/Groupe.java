@@ -1,14 +1,11 @@
 package com.example.demo.model;
 
-import java.util.Set;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
-import org.springframework.data.repository.NoRepositoryBean;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,15 +17,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Teacher  extends User {
+public class Groupe {
+	
+	 @Id
+	 @GeneratedValue(strategy = GenerationType.AUTO)
+	private long groupe_id;
+	private String name;
+	private Date year;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-	private int Teacher_id;
-    
-    
-    @OneToMany(mappedBy="groupe")
-    private Set<Groupe> items;
-    
-  
 }
